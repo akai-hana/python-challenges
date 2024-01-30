@@ -1,0 +1,6 @@
+a = input("introdueix un número: ")
+num1 = int(a)
+b = input("introdueix un número: ")
+num2 = int(b)
+print("El resultat de la suma és ", num1 + num2)
+# c=int(input(tercer número: ))
