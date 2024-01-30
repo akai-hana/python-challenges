@@ -34,4 +34,4 @@ list(map(lambda position: (muevetee_tortugaa(position[0], position[1]), circulo(
 t.color(background); muevetee_tortugaa(0, 25) # reset posicion
 [t.pendown() or t.left(45) or t.forward(150) or t.penup() or t.backward(150) for x in range(8)]  # cortapizzas 3.000
 
-t.done # il finale
+t.done # il finale      
