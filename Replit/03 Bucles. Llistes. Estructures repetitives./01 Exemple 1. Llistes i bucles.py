@@ -26,4 +26,3 @@ for i in num_prim:
     print(num_problema,"/",i,"=",num_problema/i)
     else:
       print(num_problema, " NO es divisible per",i)
-    
