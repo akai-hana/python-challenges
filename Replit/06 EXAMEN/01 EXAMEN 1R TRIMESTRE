@@ -1,0 +1,110 @@
+### Instruccions 1
+print("EXERCISI 1\n")
+
+print("Programa que demana el nom de la persona i la saluda un nombre de vegades igual al número de lletres que tingui el seu nom (utilitzar BUCLE)")
+print(40*"*", "\n")
+
+### Exercisi 1
+nom = input("Introdueix el teu nom: ")
+longitud_nom = len(nom)
+
+for i in range(longitud_nom):
+  print(f"Hola, {nom}!")
+
+print("")
+print(40*"*")
+
+### Instruccions 2
+print("EXERCISI 2\n")
+
+print("Crea la funció operacio(num1,num2,op)")
+print("num1 i num2 son nombres enters, \033[1mop\033[0m ha de ser un número de la llista [1,2,3,4]") # Els elements "\033[1m" i "\033[0m" s'utilitzen per a printejar text en negreta.
+print("Si op =1, suma")
+print("op=2, resta")
+print("op=3, multiplica")
+print("op=4, divideix \n")
+
+print("Programa que demana dos nombres enters.")
+print("Després ha de sortir un missatge com el següent:")
+print("Quina operació vols fer?")
+print("\t1) Suma")
+print("\t2) Resta")
+print("\t3) Multiplicació")
+print("\t4) Divisió")
+print("Introdueix la opció : (demanar amb input)")
+print("NOTA: si operació NO és de la llista [1,2,3,4], ho torna a demanar \n")
+
+print("Donar el resultat amb pantalla, fent ús de la funció operacio(num1,num2,op)\n")
+print(40*"*", "\n")
+
+### Exercisi 2
+def operacio(num1,num2,op):
+  if op == 1:
+    return num1 + num2
+  elif op == 2:
+    return num1 - num2
+  elif op == 3:
+    return num1 * num2
+  elif op == 4:
+    if num2 != 0: # Evitar la divisió per zero
+      return num1 / num2
+    else:
+      return "No es pot dividir per zero. Torna a introduir els nombres."
+
+opcio = 0
+while opcio not in [1, 2, 3, 4]:
+  print("Introdueix la opció (1-4): ")
+  print("\t1) Suma")
+  print("\t2) Resta")
+  print("\t3) Multiplicació")
+  print("\t4) Divisió")
+  opcio = int(input("# "))
+  
+num1 = int(input("Introdueix el primer nombre enter: "))
+num2 = int(input("Introdueix el segon nombre enter: "))
+
+resultat = operacio(num1, num2, opcio)
+print("Resultat:", resultat)
+
+print("")
+print(40*"*")
+
+### Instruccions EXTRA
+print("EXTRA:")
+print("Programa que demana introduir un nombre enter fins introduir el número zero.")
+print("Després dona la cadena de números i informa del màxim: \n")
+
+print("Exemple:")
+print("INPUT")
+print("10  10 40 40 50 60 40 40 15 10 20 \n")
+
+print("Output")
+print("llista= [10  10 40 40 50 60 40 40 15 10 20]")
+print("L'element màxim és 60")
+print(40*"*")
+
+### Exercisi EXTRA
+llista = []
+print("Introdueix un nombre enter per afegir a la llista. Introdueix 0 per finalitzar la llista. \nEl programa informará de l'element màxim de la llista.\n")
+
+while True:
+  nombre = int(input("")) # User input
+  if nombre == 0:
+    break                 # Final de programa
+  else:
+    llista.append(nombre) # Afegir última resposta a la llista
+
+def troba_maxim(una_llista): # Per no fer servir la funció "default" de Python (max).
+  maxim = llista[0]
+  for element in llista:
+    if element > maxim:
+      maxim = element
+  return maxim
+
+maxim = troba_maxim(llista) # Calcular maxim amb funció "troba_maxim"
+print("\nOUTPUT:")
+print("llista= ["+" ".join(map(str, llista)) +"]")
+print("L'element màxim és", maxim, "\n")
+
+print("Final d'exàmen. By Matias.")
+print(40*"*", "\n")
