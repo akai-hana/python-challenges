@@ -1,0 +1,136 @@
+import time
+
+print("EXEMPLE 1: Algorisme de les llistes")
+
+num1 = int(input("Introdueix el primer nombre: "))
+num2 = int(input("Introdueix el segon nombre: "))
+
+def calcular_divisors(num):
+    divisors = []
+    for i in range(1, num + 1):
+        if num % i == 0:
+            divisors.append(i)
+    return divisors
+
+def calcular_mcd(num1, num2):
+    staarto = time.time()
+
+    divisors_num1 = calcular_divisors(num1)
+    divisors_num2 = calcular_divisors(num2)
+
+    comuns = [divisor for divisor in divisors_num1 if divisor in divisors_num2]
+    mcd = comuns[-1]
+
+    finnishu = time.time()
+    programa_time = finnishu - staarto
+
+    return mcd, programa_time
+
+# calculo de divisors y mcd usando funcion
+divisors_num1 = calcular_divisors(num1)
+divisors_num2 = calcular_divisors(num2)
+mcd, programa_time = calcular_mcd(num1, num2)
+
+# Mostrar resultats
+print(f"\nDivisors de {num1}: {divisors_num1}")
+print(f"Divisors de {num2}: {divisors_num2}\n")
+print(f"MCD de {num1} i {num2}: {mcd}")
+print(f"Temps transcorregut: {programa_time} segons")
+
+print(30 * "*")
+# EXEMPLE 2: càlcul del mcm de dos nombres
+print("EXEMPLE 2: Càlcul del mcm de dos nombres")
+
+def maximcd(a, b):
+  while b:
+    a, b = b, a % b
+  return a
+
+def minimcm(num1, num2):
+  return (num1 * num2) // maximcd(num1, num2)
+
+# Exemple d'ús
+num1 = int(input("Introdueix el primer nombre: "))
+num2 = int(input("Introdueix el segon nombre: "))
+
+resultat = minimcm(num1, num2)
+print(f"El Mínim Comú Múltiple de {num1} i {num2} és: {resultat}")
+
+print(30 * "*")
+# EXEMPLE 3: Algoritme d'Euclides
+print("EXEMPLE 3: Algoritme d'Euclides")
+
+a = int(input("Escriu el primer nombre: "))
+b = int(input("Escriu el segon nombre: "))
+
+max = a
+min = b
+
+if a > b:
+  max = a
+  min = b
+else:
+  max = b
+  min = a
+# print(f"{max} max {min} min") # debug
+
+def euclides(a, b):
+  while b:
+    a, b = b, a % b
+  return a
+
+staarto = time.time()
+resultat_ex3 = euclides(a, b)
+finnishu = time.time()
+
+temps_execucio = finnishu - staarto
+
+print(f"El MCD de {a} i {b} és: {resultat_ex3}")
+print(f"El temps d'execució és de {temps_execucio} segons.")
+
+print(30 * "*")
+#EXERCICI 1. Programa que demana dos números enters i que calcula el mcm i el mcd. El programa informa del temps necessari per fer cada procés
+print("EXERCISI 1: Programa que demana dos números enters i que calcula el mcm i el mcd.")
+
+def mcd(a, b):
+  while b:
+    a, b = b, a % b
+  return a
+
+def mcm(a, b):
+  return a * b // mcd(a, b)
+
+num1 = int(input("Introdueix el primer nombre enter: "))
+num2 = int(input("Introdueix el segon nombre enter: "))
+# MCD
+staarto = time.time()
+resultado_mcd = mcd(num1, num2)
+finnishu = time.time()
+tiempo_mcd = finnishu - staarto
+# MCM
+staarto = time.time()
+resultado_mcm = mcm(num1, num2)
+finnishu = time.time()
+tiempo_mcm = finnishu - staarto
+
+print(f"\nEl MCD de {num1} y {num2} es: {resultado_mcd}")
+print(f"Tiempo necesario para calcular el MCD: {tiempo_mcd:.6f} segundos\n")
+
+print(f"El MCM de {num1} y {num2} es: {resultado_mcm}")
+print(f"Tiempo necesario para calcular el MCM: {tiempo_mcm:.6f} segundos")
+
+print(30 * "*")
+#EXERCICI 2. Programa que demana números naturals en bucle fins introduir un nombre negatiu. Finalment, informa del mcm de tots ells.
+print("EXERCISI 2: Programa que demana números naturals en bucle fins introduir un nombre negatiu.")
+
+keep_going = True
+num_ex2 = 0
+
+while keep_going is True:
+  num_ex2 = input("Introdueix un nombre natural: ")
+  while int(num_ex2) >= 0:
+    keep_going == True
+  keep_going == False
+  
+print("debug test")
+quit()
